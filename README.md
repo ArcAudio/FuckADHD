@@ -1,0 +1,2 @@
+# FuckADHD
+know the score
