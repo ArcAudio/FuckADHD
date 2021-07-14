@@ -7,10 +7,19 @@
         
     <P> organ1 volume:
     <input type="range" oninput="changeVolume(event) "min="0" max="1" value="0.5" step="0.01"/>        
+    <P> Flang freq:
+    <input type="range" oninput="changeFFreq(event) "min="1" max="200" value="0.1" step="0.1"/>
+    <P> Flang depth:
+    <input type="range" oninput="changeFDepth(event) "min="0" max="1" value="0" step="0.1"/>   
+    <P> Flang Wet:
+    <input type="range" oninput="changeFWet(event) "min="0" max="1" value="0" step="0.1"/>   
+
     <P> Trem freq:
-    <input type="range" oninput="changeTFreq(event) "min="0.1" max="1" value="0.1" step="0.1"/>
+    <input type="range" oninput="changeTFreq(event) "min="0." max="100" value="0.1" step="0.1"/>
     <P> Trem depth:
     <input type="range" oninput="changeTDepth(event) "min="0" max="1" value="0" step="0.1"/>   
+    <P> Trem Wet:
+    <input type="range" oninput="changeTWet(event) "min="0" max="1" value="0" step="0.1"/>   
 
     <P> Cutoff:
         <input type="range" oninput="changeCutoff(event) "min="20" max="5000" value="500" step="0.1"/>   
@@ -41,14 +50,6 @@
         //console.log(organ1_dsp.getParams());
     }
 
-        function changeTDepth(event)
-    {
-        var val = event.target.value;
-        val = parseFloat(val);
-        console.log(val);
-        organ1_dsp.setParamValue("/organ1/fdepth", val);
-    }
-
     function changeCutoff(event)
     {
         var val = event.target.value;
@@ -57,13 +58,53 @@
         organ1_dsp.setParamValue("/organ1/cutoff", val);
     }
 
+    function changeRes(event)
+    {
+        var val = event.target.value;
+        val = parseFloat(val);
+        console.log(val);
+        organ1_dsp.setParamValue("/organ1/res", val);
+    }
+
     // Slider handler to change the 'osc' volume
-    function changeTFreq(event)
+    function changeFFreq(event)
     {
         var val = event.target.value;
         val = parseFloat(val);
         console.log(val);
         organ1_dsp.setParamValue("/organ1/ffreq", val);
+    }
+
+    function changeFDepth(event)
+    {
+        var val = event.target.value;
+        val = parseFloat(val);
+        console.log(val);
+        organ1_dsp.setParamValue("/organ1/fdepth", val);
+    }
+
+    function changeFWet(event)
+    {
+        var val = event.target.value;
+        val = parseFloat(val);
+        console.log(val);
+        organ1_dsp.setParamValue("/organ1/fwet", val);
+    }
+
+    function changeTFreq(event)
+    {
+        var val = event.target.value;
+        val = parseFloat(val);
+        console.log(val);
+        organ1_dsp.setParamValue("/organ1/tfreq", val);
+    }
+
+    function changeTDepth(event)
+    {
+        var val = event.target.value;
+        val = parseFloat(val);
+        console.log(val);
+        organ1_dsp.setParamValue("/organ1/tdepth", val);
     }
 
     function changeTWet(event)
@@ -72,14 +113,6 @@
         val = parseFloat(val);
         console.log(val);
         organ1_dsp.setParamValue("/organ1/twet", val);
-    }
-
-    function changeRes(event)
-    {
-        var val = event.target.value;
-        val = parseFloat(val);
-        console.log(val);
-        organ1_dsp.setParamValue("/organ1/res", val);
     }
     
     // MIDI input handling
